@@ -4,10 +4,8 @@
     {
       "name": "skill-creator",
       "title": "Skill Creator",
-      "title_en": "Skill Creator",
       "category": "engineering",
       "description": "Anthropic 官方技能创作工具，从零创建、修改、评测一个 skill，或优化 description 以提升触发准确率。",
-      "description_en": "Anthropic's official tool for creating, modifying, and evaluating skills.",
       "source": "https://github.com/anthropics/claude-plugins-official/tree/main/plugins/skill-creator",
       "install": {
         "method": "plugin",
@@ -16,17 +14,13 @@
         "command": "claude plugin install skill-creator@claude-plugins-official"
       },
       "usage": "当要创建新 skill、改进现有 skill，或跑评测 / 优化触发词时使用。",
-      "usage_en": "Use when creating or improving a skill, or running evals to tune its triggers.",
-      "notes": "示例条目，可替换为任意真实第三方 skill。",
-      "notes_en": "Example entry; replace with any real third-party skill."
+      "notes": "示例条目，可替换为任意真实第三方 skill。"
     },
     {
       "name": "pdf",
       "title": "PDF",
-      "title_en": "PDF",
       "category": "engineering",
       "description": "Anthropic 官方 PDF 技能，读写、分析、转换 PDF 文档。",
-      "description_en": "Anthropic's official skill for reading, writing, analyzing, and converting PDFs.",
       "source": "https://github.com/anthropics/skills",
       "homepage": "https://github.com/anthropics/skills/tree/main/skills/pdf",
       "install": {
@@ -36,9 +30,7 @@
         "command": "mkdir -p ~/.claude/skills && git clone --depth 1 https://github.com/anthropics/skills ~/anthropics-skills && ln -s ~/anthropics-skills/skills/pdf ~/.claude/skills/pdf"
       },
       "usage": "处理 PDF 文档（读取、生成、提取、转换）时使用。",
-      "usage_en": "Use when working with PDF documents (reading, generating, extracting, converting).",
-      "notes": "示例条目，可替换为任意真实第三方 skill。",
-      "notes_en": "Example entry; replace with any real third-party skill."
+      "notes": "示例条目，可替换为任意真实第三方 skill。"
     }
   ]
 }

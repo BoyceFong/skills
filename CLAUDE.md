@@ -1,15 +1,17 @@
-# 本仓库约定（给 agent）
+# 本仓库约定（给 Claude Code）
 
-这是一个个人 Claude Code skills 收藏库，分两类资产：
+这是一个个人 agent skills 收藏库，分两类资产：
 
 1. **原创 skills**：源码 vendored 在 `skills/<分类>/<name>/`，可编辑、随仓库版本管理。
 2. **第三方推荐 skills**：不 vendored 源码，只在 `recommended-skills.json`（机器可读清单）里记录官方来源与安装方式，需要时从上游安装。
 
+> 跨 agent（Codex / Doubao / DeepSeek 等）的通用约定见 `AGENTS.md`。
+
 ## 你需要遵守的约定
 
 - **第三方 skill 不要提交源码进仓库**，只更新 `recommended-skills.json`。
-- **单一事实源**：`recommended-skills.json` 是权威数据；`README.md` / `README_EN.md` 里的推荐列表由 `scripts/render_recommended.py` 生成，不要手改列表本身。
-- **新增/修改第三方推荐**：先改 `recommended-skills.json`，再运行 `python3 scripts/render_recommended.py` 重新生成两份 README。
+- **单一事实源**：`recommended-skills.json` 是权威数据；`recommended-skills.md` 由 `scripts/render_recommended.py` 生成，不要手改。
+- **新增/修改第三方推荐**：先改 `recommended-skills.json`，再运行 `python3 scripts/render_recommended.py` 重新生成 `recommended-skills.md`。
 
 ## 当被要求「安装本仓库推荐的 skills」或初始化新环境时
 
