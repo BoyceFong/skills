@@ -19,3 +19,19 @@
 - **安装**：`mkdir -p ~/.claude/skills && git clone --depth 1 https://github.com/anthropics/skills ~/anthropics-skills && ln -s ~/anthropics-skills/skills/pdf ~/.claude/skills/pdf`
 - **如何使用**：处理 PDF 文档（读取、生成、提取、转换）时使用。
 - **备注**：示例条目，可替换为任意真实第三方 skill。
+
+### Grilling（`grilling`）
+
+- **简介**：基于「决策树」对用户的计划/决策/想法做一轮轮无情追问（每轮给出推荐答案），直到达成共同理解，用于压力测试思路、收敛设计决策。
+- **官方来源**：[https://github.com/mattpocock/skills](https://github.com/mattpocock/skills)（文档：[https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling](https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling)）
+- **安装**：`mkdir -p ~/.claude/skills && git clone --depth 1 https://github.com/mattpocock/skills ~/mattpocock-skills && ln -s ~/mattpocock-skills/skills/productivity/grilling ~/.claude/skills/grilling`
+- **如何使用**：想对某个计划/决策/想法做压力测试、逐层收敛「决策树」，或用户说「grill 我」时使用。
+- **备注**：Matt Pocock 的 skills 合集（MIT）。grill-me / grill-with-docs 是其用户触发的变体。
+
+### Leader（`leader`）
+
+- **简介**：把一句话的想法拆成 AI agent 能独立跑完的目标任务书（≤4000 字符，可直接粘进 /goal），含实测数字、白名单地界、防作弊验收与断点续跑。
+- **官方来源**：[https://github.com/KKKKhazix/khazix-skills](https://github.com/KKKKhazix/khazix-skills)（文档：[https://github.com/KKKKhazix/khazix-skills/tree/main/leader](https://github.com/KKKKhazix/khazix-skills/tree/main/leader)）
+- **安装**：`mkdir -p ~/.claude/skills && git clone --depth 1 https://github.com/KKKKhazix/khazix-skills ~/khazix-skills && ln -s ~/khazix-skills/leader ~/.claude/skills/leader`
+- **如何使用**：要「给 agent 写目标/任务书/brief」「拆解目标」「让 agent 自己跑项目」「多 agent 并行」时使用。
+- **备注**：卡兹克（KKKKhazix）开源合集（含 leader / neat-freak / hv-analysis 等）。
