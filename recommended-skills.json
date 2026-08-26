@@ -13,8 +13,7 @@
         "plugin": "skill-creator",
         "command": "claude plugin install skill-creator@claude-plugins-official"
       },
-      "usage": "当要创建新 skill、改进现有 skill，或跑评测 / 优化触发词时使用。",
-      "notes": "示例条目，可替换为任意真实第三方 skill。"
+      "usage": "当要创建新 skill、改进现有 skill，或跑评测 / 优化触发词时使用。"
     },
     {
       "name": "pdf",
@@ -29,8 +28,7 @@
         "path": "skills/pdf",
         "command": "mkdir -p ~/.claude/skills && git clone --depth 1 https://github.com/anthropics/skills ~/anthropics-skills && ln -s ~/anthropics-skills/skills/pdf ~/.claude/skills/pdf"
       },
-      "usage": "处理 PDF 文档（读取、生成、提取、转换）时使用。",
-      "notes": "示例条目，可替换为任意真实第三方 skill。"
+      "usage": "处理 PDF 文档（读取、生成、提取、转换）时使用。"
     },
     {
       "name": "grilling",
