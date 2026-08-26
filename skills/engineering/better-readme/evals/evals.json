@@ -1,0 +1,49 @@
+{
+  "skill_name": "better-readme",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "我写了一个 Python 命令行工具 md-toc（自动给 Markdown 文件生成目录树），准备发布到 GitHub 让更多人使用。请帮我写一份完整的 README.md：包含项目介绍、安装方式、用法示例（含预期输出）、配置选项、贡献方式。项目用 MIT 协议，目前只有一个 GitHub 仓库，还没有独立文档站。",
+      "expected_output": "A complete README.md with a clear one-line pitch, install commands, a usage example with expected output, configuration options, contributing guidance, and license info.",
+      "files": [],
+      "assertions": [
+        "one-line-pitch-present",
+        "install-command",
+        "usage-example-with-output",
+        "options-documented",
+        "contributing-path",
+        "license-stated",
+        "checker-score-at-least-12"
+      ]
+    },
+    {
+      "id": 1,
+      "prompt": "这是我现有项目的 README.md（见 input/README.md），太简陋了，用户根本看不懂这工具能干什么。请帮我重写一份更好的 README，让它更像成熟开源项目。",
+      "expected_output": "A rewritten README.md that explains what the project does, how to install and use it with a concrete example, and includes community/contributing/license information.",
+      "files": ["input/README.md"],
+      "assertions": [
+        "pitch-explains-value",
+        "install-command",
+        "usage-example-with-output",
+        "structured-headings",
+        "contributing-and-license",
+        "checker-score-improvement"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "我的项目 README 现在有 200 多行但没有目录，结构混乱，用户经常找不到安装和配置说明（它们埋在中间）。请帮我重组这份 README（见 input/README.md）：加目录、按合理顺序整理章节、把安装和快速开始提到前面，并补上缺失的徽章、截图占位和贡献/许可信息。",
+      "expected_output": "A reorganized README.md with a table of contents, logical section ordering (quickstart early), and complete metadata sections.",
+      "files": ["input/README.md"],
+      "assertions": [
+        "table-of-contents",
+        "quickstart-early",
+        "config-preserved",
+        "commands-preserved",
+        "badges-placeholder",
+        "contributing-license-security",
+        "checker-score-at-least-13"
+      ]
+    }
+  ]
+}
