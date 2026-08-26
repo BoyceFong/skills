@@ -1,0 +1,4 @@
+interface:
+  display_name: "Quant AutoResearch"
+  short_description: "Autonomous quant strategy research loop"
+  default_prompt: "Use $quant-autoresearch to run an autonomous research session on my quant project: define the objective, then drive the full hypothesis -> backtest -> diagnose -> iterate -> archive loop until I interrupt."

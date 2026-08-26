@@ -1,0 +1,11 @@
+[project]
+name = "__NAME__"
+version = "0.1.0"
+description = "Quant AutoResearch project"
+requires-python = ">=3.9"
+dependencies = [
+    "numpy>=1.23",
+    "pandas>=1.5",
+    "matplotlib>=3.5",
+    'tomli>=2.0; python_version < "3.11"',
+]
