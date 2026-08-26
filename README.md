@@ -1,9 +1,13 @@
 # My Skills
 
-个人 agent skills 收藏库，分两类资产：
+**中文** · [English](./README_EN.md)
 
-- **原创 skills**：源码 vendored 在本仓库 `skills/<分类>/<name>/`，可直接编辑、随 git 版本管理。
-- **第三方推荐 skills**：不 vendored 源码，只在 `recommended-skills.json`（机器可读清单）里记录官方来源与安装方式，需要时从上游安装。
+个人 agent skills 收藏库：原创 skill 源码随仓库版本管理，优质第三方 skill 以「推荐清单」记录官方来源与安装方式，让任何 agent 读取本仓库就知道该装哪些 skill。
+
+## 这是什么
+
+- **原创 skills** —— 源码 vendored 在 `skills/<分类>/<name>/`，可直接编辑、随 git 版本管理。
+- **第三方推荐 skills** —— 不 vendored 源码，只在 `recommended-skills.json`（机器可读清单）记录官方来源与安装方式，需要时从上游安装。
 
 ## 目录结构
 
@@ -16,9 +20,9 @@
 ├── recommended-skills.json       # 第三方推荐清单（唯一事实源，机器可读）
 ├── recommended-skills.md         # 第三方推荐清单（人类可读，由脚本生成）
 ├── scripts/render_recommended.py # 从 JSON 生成 recommended-skills.md
-├── README.md                     # 本文件（人类入口）
+├── README.md / README_EN.md      # 本仓库说明（中文 / 英文）
 ├── CLAUDE.md                     # Claude Code 的约定与安装指令
-└── AGENTS.md                     # 其他 agent（Codex / Doubao / DeepSeek 等）的约定与安装指令
+└── AGENTS.md                     # 其他 agent（Codex / Doubao / DeepSeek 等）的约定
 ```
 
 ## 快速上手
@@ -32,17 +36,22 @@
 ln -s "$PWD/skills/engineering/better-readme" ~/.claude/skills/better-readme
 ```
 
-其他 agent（Codex / Doubao / DeepSeek 等）按其各自的 skill 机制安装即可，见 `AGENTS.md`。
+其他 agent 按其各自的 skill 机制安装，见 [`AGENTS.md`](./AGENTS.md)。
 
 ### 安装第三方推荐 skills
 
-见 [`recommended-skills.md`](./recommended-skills.md)。清单源数据在 `recommended-skills.json`，逐条按其 `install` 字段安装即可。
+见 [`recommended-skills.md`](./recommended-skills.md)（由 `recommended-skills.json` 生成）。逐条按 `install` 字段安装即可。
 
 ## 约定
 
 - **原创 vs 第三方分界**：原创 skill 源码提交进 `skills/`；第三方 skill 不提交源码，只更新 `recommended-skills.json`。
 - **单一事实源**：`recommended-skills.json` 是权威数据，`recommended-skills.md` 由 `scripts/render_recommended.py` 生成，**不要手改**。
 - **新增/修改第三方推荐**：改 `recommended-skills.json` → 运行 `python3 scripts/render_recommended.py` 重新生成 `recommended-skills.md`。
+
+## 这不是什么
+
+- 不是 skills 的**运行目录**：`skills/` 是源码组织，安装时需摊平到各 agent 的 skills 目录。
+- 不是第三方 skills 的**镜像**：第三方 skill 源码不在本仓库，只在清单里记录上游来源。
 
 ## 清单字段说明
 
