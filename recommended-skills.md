@@ -36,6 +36,13 @@
 - **如何使用**：想在压力测试设计决策的同时把结论沉淀为项目文档（ADR / glossary）时使用。
 - **备注**：依赖 grilling 与 domain-modeling（后者含 ADR-FORMAT.md / CONTEXT-FORMAT.md 参考模板），依赖关系见 install.requires，需一并安装三者。
 
+### Handoff（`handoff`）
+
+- **简介**：把当前对话压缩为可交接文档，供新会话或另一个 agent 续接；引用已有产物、建议后续 skills，并对敏感信息脱敏。
+- **官方来源**：[https://github.com/mattpocock/skills](https://github.com/mattpocock/skills)（文档：[https://github.com/mattpocock/skills/tree/main/skills/productivity/handoff](https://github.com/mattpocock/skills/tree/main/skills/productivity/handoff)）
+- **安装**：把 [https://github.com/mattpocock/skills](https://github.com/mattpocock/skills) 中的 `skills/productivity/handoff` 子目录整个复制到所用 agent 自己的 skills 目录下的 `handoff/`（复制语义，不用共享 clone + 软链）
+- **如何使用**：准备结束当前会话、要把上下文移交给新 agent 或新任务时使用；可通过参数说明下一阶段重点。
+
 ### Domain Modeling（`domain-modeling`）
 
 - **简介**：构建并校准项目的领域模型：讨论代码库术语、编写或维护 CONTEXT.md 术语表、撰写 ADR 架构决策记录，附 ADR-FORMAT.md / CONTEXT-FORMAT.md 参考模板。

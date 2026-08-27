@@ -64,6 +64,20 @@
       "notes": "依赖 grilling 与 domain-modeling（后者含 ADR-FORMAT.md / CONTEXT-FORMAT.md 参考模板），依赖关系见 install.requires，需一并安装三者。"
     },
     {
+      "name": "handoff",
+      "title": "Handoff",
+      "category": "engineering",
+      "description": "把当前对话压缩为可交接文档，供新会话或另一个 agent 续接；引用已有产物、建议后续 skills，并对敏感信息脱敏。",
+      "source": "https://github.com/mattpocock/skills",
+      "homepage": "https://github.com/mattpocock/skills/tree/main/skills/productivity/handoff",
+      "install": {
+        "method": "git",
+        "repo": "https://github.com/mattpocock/skills",
+        "path": "skills/productivity/handoff"
+      },
+      "usage": "准备结束当前会话、要把上下文移交给新 agent 或新任务时使用；可通过参数说明下一阶段重点。"
+    },
+    {
       "name": "domain-modeling",
       "title": "Domain Modeling",
       "category": "engineering",
