@@ -21,8 +21,8 @@
 ├── recommended-skills.md         # 第三方推荐清单（人类可读，由脚本生成）
 ├── scripts/render_recommended.py # 从 JSON 生成 recommended-skills.md
 ├── README.md / README_EN.md      # 本仓库说明（中文 / 英文）
-├── CLAUDE.md                     # Claude Code 的约定与安装指令
-└── AGENTS.md                     # 其他 agent（Codex / Doubao / DeepSeek 等）的约定
+├── CLAUDE.md                     # Claude Code 入口（一行 @AGENTS.md 转发，勿写实质内容）
+└── AGENTS.md                     # 所有 agent 的约定（单一事实源，Claude / Codex / Doubao / DeepSeek 等）
 ```
 
 ## 快速上手

@@ -37,28 +37,17 @@ def source_line(skill):
 
 def install(skill):
     ins = skill.get("install") or {}
-    if ins.get("command"):
-        return f"`{ins['command']}`"
-    method = ins.get("method")
     name = skill["name"]
-    if method == "plugin":
-        marketplace = ins.get("marketplace", "")
-        plugin = ins.get("plugin", name)
-        steps = []
-        if marketplace:
-            steps.append(f"`claude plugin marketplace add {marketplace}`")
-        pin = f"{plugin}@{marketplace}" if marketplace else plugin
-        steps.append(f"`claude plugin install {pin}`")
-        return "，然后 ".join(steps)
-    if method == "git":
-        repo = ins.get("repo", "")
-        path = ins.get("path", "")
-        if repo and path:
-            return f"`git clone {repo}` 后，把 `{path}` 软链到 `~/.claude/skills/{name}/`"
-        return f"`git clone {repo} ~/.claude/skills/{name}/`"
-    if method == "copy":
-        return f"把 `{name}/SKILL.md`（含 `scripts/`、`references/` 等）复制/软链到 `~/.claude/skills/{name}/`"
-    return "见 `recommended-skills.json`"
+    repo = ins.get("repo", "")
+    if not repo:
+        return "见 `recommended-skills.json`"
+    parts = [
+        f"把 [{repo}]({repo}) 中的 `{ins.get('path', '')}` 子目录整个复制到所用 agent 自己的 skills 目录下的 `{name}/`（复制语义，不用共享 clone + 软链）"
+    ]
+    reqs = ins.get("requires") or []
+    if reqs:
+        parts.append("并一并安装依赖：" + "、".join(f"`{r}`" for r in reqs))
+    return "，".join(parts)
 
 
 def render(skills):
