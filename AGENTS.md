@@ -13,20 +13,22 @@
 - **单一事实源**：`recommended-skills.json` 是权威数据；`recommended-skills.md` 由 `scripts/render_recommended.py` 生成，不要手改。
 - **新增/修改第三方推荐**：先改 `recommended-skills.json`，再运行 `python3 scripts/render_recommended.py` 重新生成 `recommended-skills.md`。
 
-## 当被要求「安装本仓库推荐的 skills」或初始化新环境时
+## 当被要求「安装本仓库的 skills」「安装本仓库推荐的 skills」或初始化新环境时
 
-安装统一为「复制」语义：**每个 agent 由自己管理自己 skills 目录下的副本**，不搞跨 agent 共享。
+本仓库有**两类 skills，安装时两类都要装、缺一不可**：
 
-1. 读取 `recommended-skills.json` 的 `skills` 数组。
-2. `install` 只含声明性字段，不提供现成命令：
+1. **原创 skills**：源码就在本仓库 `skills/<分类>/<name>/`。扫描 `skills/*/*/SKILL.md` 得到全集，把每个 `<name>/` 文件夹**完整复制**到当前 agent 自己的 skills 目录下，摊平为 `<name>/`（含 `SKILL.md`、`scripts/`、`references/` 等）。
+2. **第三方推荐 skills**：清单是 `recommended-skills.json`（唯一事实源），源码不进仓库、按声明从上游安装。`install` 只含声明性字段，不提供现成命令：
    - `repo`：上游 git 仓库；
    - `path`：该 skill 在仓库中的子目录；
    - `requires`（可选）：运行时依赖的其他 skill 名。
-3. 安装步骤：把上游 `repo` 取到临时目录（git clone 或下载 tarball 均可）→ 把 `path` 子目录的完整内容（`SKILL.md` 及 `scripts/`、`references/` 等）复制进当前 agent 自己的 skills 目录下的同名文件夹 `<name>/`（如 Claude Code 是 `~/.claude/skills/<name>/`）→ 删除临时目录。
-4. `requires` 列出的依赖 skill 必须按同样方式一并复制安装。
-5. **不要**在 `$HOME` 下长期 clone 一份共享代码再软链给各 agent 使用；重复安装/更新时直接整目录覆盖旧副本，保证幂等。
-6. 安装后检查 `<name>/SKILL.md` 的 `name` / `description` frontmatter 正确。若某 skill 存在该 agent 专属的更原生安装渠道（如 Claude Code 插件市场），可在告知用户后改用之，但 `recommended-skills.json` 本身不记录这类命令。
 
-## 原创 skills 的位置
+   安装步骤：把上游 `repo` 取到临时目录（git clone 或下载 tarball 均可）→ 把 `path` 子目录完整复制为 skills 目录下的 `<name>/` → 删除临时目录；`requires` 列出的依赖必须一并装。
 
-原创 skill 在 `skills/<分类>/<name>/SKILL.md`（源码组织）。安装时摊平到目标 agent 的 skills 目录即可。
+两类通用的规则：
+
+- 复制语义：**每个 agent 由自己管理自己 skills 目录下的副本**（如 Claude Code 是 `~/.claude/skills/<name>/`）。
+- **不要**在 `$HOME` 下长期 clone 一份共享代码再软链给各 agent 使用；重复安装/更新时直接整目录覆盖旧副本，保证幂等。
+- 安装后检查 `<name>/SKILL.md` 的 `name` / `description` frontmatter 正确。
+- **完整性自检**：原创全集 = `skills/*/*/SKILL.md` 匹配到的目录数；第三方全集 = `recommended-skills.json` 的 `skills` 数组长度。装完逐一核对，缺哪个补哪个。
+- 若某第三方 skill 存在该 agent 专属的更原生安装渠道（如 Claude Code 插件市场），可在告知用户后改用之，但 `recommended-skills.json` 本身不记录这类命令。
