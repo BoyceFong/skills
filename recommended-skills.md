@@ -11,13 +11,6 @@
 - **安装**：`claude plugin install skill-creator@claude-plugins-official`
 - **如何使用**：当要创建新 skill、改进现有 skill，或跑评测 / 优化触发词时使用。
 
-### PDF（`pdf`）
-
-- **简介**：Anthropic 官方 PDF 技能，读写、分析、转换 PDF 文档。
-- **官方来源**：[https://github.com/anthropics/skills](https://github.com/anthropics/skills)（文档：[https://github.com/anthropics/skills/tree/main/skills/pdf](https://github.com/anthropics/skills/tree/main/skills/pdf)）
-- **安装**：`mkdir -p ~/.claude/skills && git clone --depth 1 https://github.com/anthropics/skills ~/anthropics-skills && ln -s ~/anthropics-skills/skills/pdf ~/.claude/skills/pdf`
-- **如何使用**：处理 PDF 文档（读取、生成、提取、转换）时使用。
-
 ### Grilling（`grilling`）
 
 - **简介**：基于「决策树」对用户的计划/决策/想法做一轮轮无情追问（每轮给出推荐答案），直到达成共同理解，用于压力测试思路、收敛设计决策。
