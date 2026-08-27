@@ -6,14 +6,15 @@
       "title": "Skill Creator",
       "category": "engineering",
       "description": "Anthropic 官方技能创作工具，从零创建、修改、评测一个 skill，或优化 description 以提升触发准确率。",
-      "source": "https://github.com/anthropics/claude-plugins-official/tree/main/plugins/skill-creator",
+      "source": "https://github.com/anthropics/skills",
+      "homepage": "https://github.com/anthropics/skills/tree/main/skills/skill-creator",
       "install": {
-        "method": "plugin",
-        "marketplace": "anthropics/claude-plugins-official",
-        "plugin": "skill-creator",
-        "command": "claude plugin install skill-creator@claude-plugins-official"
+        "method": "git",
+        "repo": "https://github.com/anthropics/skills",
+        "path": "skills/skill-creator"
       },
-      "usage": "当要创建新 skill、改进现有 skill，或跑评测 / 优化触发词时使用。"
+      "usage": "当要创建新 skill、改进现有 skill，或跑评测 / 优化触发词时使用。",
+      "notes": "Anthropic 官方 skills 合集（另含 docx / pdf / pptx / xlsx 等）。同一技能也经官方插件市场分发（插件名同为 skill-creator），Claude Code 两种渠道效果等价。"
     },
     {
       "name": "grilling",
@@ -25,8 +26,7 @@
       "install": {
         "method": "git",
         "repo": "https://github.com/mattpocock/skills",
-        "path": "skills/productivity/grilling",
-        "command": "mkdir -p ~/.claude/skills && git clone --depth 1 https://github.com/mattpocock/skills ~/mattpocock-skills && ln -s ~/mattpocock-skills/skills/productivity/grilling ~/.claude/skills/grilling"
+        "path": "skills/productivity/grilling"
       },
       "usage": "想对某个计划/决策/想法做压力测试、逐层收敛「决策树」，或用户说「grill 我」时使用。",
       "notes": "Matt Pocock 的 skills 合集（MIT）。grill-me / grill-with-docs 是其用户触发的变体。"
@@ -42,10 +42,10 @@
         "method": "git",
         "repo": "https://github.com/mattpocock/skills",
         "path": "skills/productivity/grill-me",
-        "command": "mkdir -p ~/.claude/skills && git clone --depth 1 https://github.com/mattpocock/skills ~/mattpocock-skills && ln -s ~/mattpocock-skills/skills/productivity/grilling ~/.claude/skills/grilling && ln -s ~/mattpocock-skills/skills/productivity/grill-me ~/.claude/skills/grill-me"
+        "requires": ["grilling"]
       },
       "usage": "只想用 /grill-me 显式手动触发、不希望模型自动触发时使用。",
-      "notes": "无独立逻辑，运行时依赖 grilling，安装命令已一并软链 grilling。"
+      "notes": "无独立逻辑，运行时依赖 grilling，依赖关系见 install.requires。"
     },
     {
       "name": "grill-with-docs",
@@ -58,10 +58,10 @@
         "method": "git",
         "repo": "https://github.com/mattpocock/skills",
         "path": "skills/engineering/grill-with-docs",
-        "command": "mkdir -p ~/.claude/skills && git clone --depth 1 https://github.com/mattpocock/skills ~/mattpocock-skills && ln -s ~/mattpocock-skills/skills/productivity/grilling ~/.claude/skills/grilling && ln -s ~/mattpocock-skills/skills/engineering/domain-modeling ~/.claude/skills/domain-modeling && ln -s ~/mattpocock-skills/skills/engineering/grill-with-docs ~/.claude/skills/grill-with-docs"
+        "requires": ["grilling", "domain-modeling"]
       },
       "usage": "想在压力测试设计决策的同时把结论沉淀为项目文档（ADR / glossary）时使用。",
-      "notes": "依赖 grilling 与 domain-modeling（后者含 ADR-FORMAT.md / CONTEXT-FORMAT.md 参考模板），安装命令已一并软链三者。"
+      "notes": "依赖 grilling 与 domain-modeling（后者含 ADR-FORMAT.md / CONTEXT-FORMAT.md 参考模板），依赖关系见 install.requires，需一并安装三者。"
     },
     {
       "name": "domain-modeling",
@@ -73,8 +73,7 @@
       "install": {
         "method": "git",
         "repo": "https://github.com/mattpocock/skills",
-        "path": "skills/engineering/domain-modeling",
-        "command": "mkdir -p ~/.claude/skills && git clone --depth 1 https://github.com/mattpocock/skills ~/mattpocock-skills && ln -s ~/mattpocock-skills/skills/engineering/domain-modeling ~/.claude/skills/domain-modeling"
+        "path": "skills/engineering/domain-modeling"
       },
       "usage": "需要沉淀领域术语表（CONTEXT.md）、记录架构决策（ADR），或聊到代码库术语命名时使用；可被模型自动触发。",
       "notes": "自身无依赖，可独立使用。与 grill 系列的关系：grill-with-docs 依赖本 skill（其运行时同时调用 grilling + domain-modeling）；grilling / grill-me 不依赖它。"
@@ -89,8 +88,7 @@
       "install": {
         "method": "git",
         "repo": "https://github.com/KKKKhazix/khazix-skills",
-        "path": "leader",
-        "command": "mkdir -p ~/.claude/skills && git clone --depth 1 https://github.com/KKKKhazix/khazix-skills ~/khazix-skills && ln -s ~/khazix-skills/leader ~/.claude/skills/leader"
+        "path": "leader"
       },
       "usage": "要「给 agent 写目标/任务书/brief」「拆解目标」「让 agent 自己跑项目」「多 agent 并行」时使用。",
       "notes": "卡兹克（KKKKhazix）开源合集（含 leader / neat-freak / hv-analysis 等）。"
