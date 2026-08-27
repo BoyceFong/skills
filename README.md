@@ -27,16 +27,16 @@
 
 ## 快速上手
 
+安装本仓库 skills = **原创 + 第三方推荐两类都装**；通用安装约定（复制语义、幂等、依赖）见 [`AGENTS.md`](./AGENTS.md)。
+
 ### 安装原创 skills
 
-原创 skill 位于 `skills/<分类>/<name>/`，是**源码组织**。Claude Code 只自动发现扁平的 `~/.claude/skills/<name>/SKILL.md`，因此需要把每个 skill 摊平安装：
+原创 skill 位于 `skills/<分类>/<name>/`，是**源码组织**。agent 只自动发现扁平的 `<skills 目录>/<name>/SKILL.md`，因此需要把每个 skill 摊平复制安装：
 
 ```bash
-# 例如把 engineering/better-readme 安装为 ~/.claude/skills/better-readme
-ln -s "$PWD/skills/engineering/better-readme" ~/.claude/skills/better-readme
+# Claude Code 示例：一条命令复制全部原创 skills；其他 agent 把目标目录换成自己的 skills 目录即可
+mkdir -p ~/.claude/skills && for d in skills/*/*/; do cp -R "$d" ~/.claude/skills/"$(basename "$d")"; done
 ```
-
-其他 agent 按其各自的 skill 机制安装，见 [`AGENTS.md`](./AGENTS.md)。
 
 ### 安装第三方推荐 skills
 

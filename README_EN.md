@@ -27,16 +27,16 @@ A personal skills collection for agents: original skills are version-controlled 
 
 ## Quick start
 
+Installing this repo's skills means **both original and recommended third-party**; see [`AGENTS.md`](./AGENTS.md) for the full conventions (copy semantics, idempotency, dependencies).
+
 ### Install original skills
 
-Original skills live under `skills/<category>/<name>/` as source. Claude Code only auto-discovers the flat `~/.claude/skills/<name>/SKILL.md` layout, so each skill must be installed flat:
+Original skills live under `skills/<category>/<name>/` as source. Agents only auto-discover the flat `<skills dir>/<name>/SKILL.md` layout, so each skill must be installed flat (copy semantics):
 
 ```bash
-# e.g. install engineering/better-readme as ~/.claude/skills/better-readme
-ln -s "$PWD/skills/engineering/better-readme" ~/.claude/skills/better-readme
+# Claude Code example: copy all original skills in one go; other agents swap in their own skills dir
+mkdir -p ~/.claude/skills && for d in skills/*/*/; do cp -R "$d" ~/.claude/skills/"$(basename "$d")"; done
 ```
-
-Other agents install via their own skill mechanism; see [`AGENTS.md`](./AGENTS.md).
 
 ### Install recommended third-party skills
 
