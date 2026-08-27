@@ -15,12 +15,17 @@
 
 ## 当被要求「安装本仓库推荐的 skills」或初始化新环境时
 
+安装统一为「复制」语义：**每个 agent 由自己管理自己 skills 目录下的副本**，不搞跨 agent 共享。
+
 1. 读取 `recommended-skills.json` 的 `skills` 数组。
-2. 逐条按 `install` 字段安装缺失的 skill：
-   - `install.method = "plugin"`：这是 Claude Code 专属的插件装法（`claude plugin install ...`）。在其他 agent 环境下，改用 `source` 或 `install.repo` 从上游获取，按该 agent 的原生 skill 机制安装。
-   - `install.method = "git"`：`git clone <repo>` 后，把 `install.path` 指向的 skill 文件夹复制/软链到该 agent 的 skills 目录。
-   - `install.method = "copy"`：把 `SKILL.md`（含 `scripts/`、`references/` 等）复制/软链到该 agent 的 skills 目录。
-3. 每个条目都提供 `source`（官方来源链接）。若某 agent 的 skill 机制与上述方式不同，一律以 `source` 为准，按该 agent 的原生方式安装。
+2. `install` 只含声明性字段，不提供现成命令：
+   - `repo`：上游 git 仓库；
+   - `path`：该 skill 在仓库中的子目录；
+   - `requires`（可选）：运行时依赖的其他 skill 名。
+3. 安装步骤：把上游 `repo` 取到临时目录（git clone 或下载 tarball 均可）→ 把 `path` 子目录的完整内容（`SKILL.md` 及 `scripts/`、`references/` 等）复制进当前 agent 自己的 skills 目录下的同名文件夹 `<name>/`（如 Claude Code 是 `~/.claude/skills/<name>/`）→ 删除临时目录。
+4. `requires` 列出的依赖 skill 必须按同样方式一并复制安装。
+5. **不要**在 `$HOME` 下长期 clone 一份共享代码再软链给各 agent 使用；重复安装/更新时直接整目录覆盖旧副本，保证幂等。
+6. 安装后检查 `<name>/SKILL.md` 的 `name` / `description` frontmatter 正确。若某 skill 存在该 agent 专属的更原生安装渠道（如 Claude Code 插件市场），可在告知用户后改用之，但 `recommended-skills.json` 本身不记录这类命令。
 
 ## 原创 skills 的位置
 

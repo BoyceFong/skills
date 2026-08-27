@@ -21,8 +21,8 @@ A personal skills collection for agents: original skills are version-controlled 
 ├── recommended-skills.md         # Third-party recommendations (human-readable, generated)
 ├── scripts/render_recommended.py # Renders recommended-skills.md from the JSON
 ├── README.md / README_EN.md      # This doc (Chinese / English)
-├── CLAUDE.md                     # Conventions & install instructions for Claude Code
-└── AGENTS.md                     # Conventions for other agents (Codex / Doubao / DeepSeek)
+├── CLAUDE.md                     # Claude Code entry (thin @AGENTS.md shim; no real content here)
+└── AGENTS.md                     # Conventions for all agents (single source of truth)
 ```
 
 ## Quick start
