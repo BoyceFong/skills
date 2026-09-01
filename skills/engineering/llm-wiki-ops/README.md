@@ -96,6 +96,8 @@ llm-wiki-ops/
 
 本技能基于刘聪NLP（[liucongg](https://github.com/liucongg)）开源的 [llm-wiki-ops](https://github.com/liucongg/liucong-skills/tree/main/skills/llm-wiki-ops)（Apache-2.0）vendored 进本仓库，随仓库版本维护，后续修改直接在本目录进行。
 
+Wiki 框架方法论来自 Andrej Karpathy 的 [LLM Wiki pattern](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)：让 LLM 把原始资料持续编译成互相链接的持久化 wiki，而非传统 RAG 检索。
+
 - 2026-09-01：维护手册文件名约定由 `AGENT.md` 改为业界通用的 `AGENTS.md`（同步修改 SKILL.md、references/init.md、config/ 示例与说明）。
 
 ## License
