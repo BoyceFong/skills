@@ -1,0 +1,42 @@
+{
+  "wiki_name": "LLM Wiki",
+  "space_id": "YOUR_SPACE_ID",
+  "space_url": "https://your-tenant.feishu.cn/wiki/YOUR_ROOT_NODE_TOKEN",
+  "root_node_token": "YOUR_ROOT_NODE_TOKEN",
+  "nodes": {
+    "原始资料": {
+      "node_token": "YOUR_RAW_MATERIALS_NODE_TOKEN",
+      "obj_token": "YOUR_RAW_MATERIALS_OBJ_TOKEN"
+    },
+    "词条": {
+      "node_token": "YOUR_ENTRIES_NODE_TOKEN",
+      "obj_token": "YOUR_ENTRIES_OBJ_TOKEN"
+    },
+    "我的文章": {
+      "node_token": "YOUR_ARTICLES_NODE_TOKEN",
+      "children": {
+        "成稿": {
+          "node_token": "YOUR_FINAL_ARTICLES_NODE_TOKEN",
+          "obj_token": "YOUR_FINAL_ARTICLES_OBJ_TOKEN"
+        },
+        "草稿": {
+          "node_token": "YOUR_DRAFTS_NODE_TOKEN",
+          "obj_token": "YOUR_DRAFTS_OBJ_TOKEN"
+        }
+      }
+    }
+  },
+  "docs": {
+    "索引": {
+      "doc_id": "YOUR_INDEX_DOC_ID"
+    },
+    "更新日志": {
+      "doc_id": "YOUR_CHANGELOG_DOC_ID"
+    },
+    "AGENTS.md": {
+      "file_token": "YOUR_AGENTS_FILE_TOKEN"
+    }
+  },
+  "created_at": "YYYY-MM-DD",
+  "last_updated": "YYYY-MM-DD"
+}
